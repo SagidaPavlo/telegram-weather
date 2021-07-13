@@ -25,7 +25,7 @@ def get_weather(city):
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
     if message.text == "Привіт":
-        bot.send_message(message.from_user.id, "Привіт, я вмію знаходити прогноз погоди на завтра.")
+        bot.send_message(message.from_user.id, "Привіт, я вмію знаходити прогноз погоди на завтра.Введіть текст: Погода в <місто>")
     elif message.text == "/help":
         bot.send_message(message.from_user.id, "Напиши Привіт")
     elif message.text == "/start":
@@ -41,7 +41,9 @@ def get_text_messages(message):
             else:
                 bot.send_message(message.from_user.id, 'Такого міста не знайдено')
     else:
-        bot.send_message(message.from_user.id, "Вв")
+        bot.send_message(message.from_user.id, "Я тебе не розумію. Напиши /help.")
+
+#bot.polling(none_stop=True, interval=0)
 
 if __name__ == '__main__':
     bot.polling(none_stop=True, interval=0)
